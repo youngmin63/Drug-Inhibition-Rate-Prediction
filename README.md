@@ -4,7 +4,6 @@ This project aimed to predict CYP3A4 inhibition rates using molecular structure 
 
 I was responsible for building and evaluating regression models based on molecular representations, including fingerprint-based machine learning models, pretrained chemical language models, and graph neural networks, and assessing performance using inhibition rate as the target variable.
 
----
 
 ## II. EDA Summary
 
@@ -12,7 +11,6 @@ The inhibition rate values ranged from 0 to 100 and showed a highly imbalanced d
 
 After incorporating external data from ChEMBL, the dataset size increased significantly, improving chemical diversity. However, high-inhibition compounds (above 70%) remained sparse, highlighting the need for data augmentation and specialised modelling strategies.
 
----
 
 ## III. Description of Approach
 
@@ -28,7 +26,6 @@ Multiple regression models were compared, including fingerprint-based machine le
 
 All models were evaluated using MAE and RMSE with cross-validation, and the best-performing model was further tuned through hyperparameter optimisation before being used for final inhibition rate prediction.
 
----
 
 ## IV. Results – Inhibition Rate Prediction
 
@@ -40,7 +37,6 @@ Graph neural network models (GIN) demonstrated potential in capturing molecular 
 
 Hyperparameter tuning was applied to the best-performing models to optimise learning rates, regularisation strength, and model complexity. The final selected model achieved a local validation score of approximately 0.82 and a leaderboard score of around 0.77, and was used to generate inhibition rate predictions for unseen compounds.
 
----
 
 ## V. Conclusion
 
