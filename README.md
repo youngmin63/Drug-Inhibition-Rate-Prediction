@@ -1,30 +1,37 @@
 ## I. Project Goals and Tasks
 
-This project aimed to predict CYP3A4 inhibition rates using molecular structure data represented as SMILES, supporting early-stage drug discovery and toxicity screening.
-
-I was responsible for building and evaluating regression models based on molecular representations, including fingerprint-based machine learning models, pretrained chemical language models, and graph neural networks, and assessing performance using inhibition rate as the target variable.
-
+This project aims to predict CYP3A4 inhibition rates using molecular structure data represented as SMILES, supporting early-stage drug discovery and toxicity screening.
+The final solution is based on molecular fingerprint features combined with gradient boosting regression models, selected for their robustness, interpretability, and efficient training.
 
 ## II. EDA Summary
 
 The inhibition rate values ranged from 0 to 100 and showed a highly imbalanced distribution, with the majority of compounds exhibiting low to moderate inhibition and relatively few samples with high inhibition rates.
 
-After incorporating external data from ChEMBL, the dataset size increased significantly, improving chemical diversity. However, high-inhibition compounds (above 70%) remained sparse, highlighting the need for data augmentation and specialised modelling strategies.
-
-
 ## III. Description of Approach
 
 ### Data Preparation
 
-The molecular dataset was cleaned and standardised by validating SMILES strings, removing invalid or duplicate molecules, and aligning inhibition rate values across sources. External data from ChEMBL was integrated to increase data volume and chemical diversity.
+The molecular dataset was cleaned and standardised by validating SMILES strings, removing invalid or duplicate molecules, and aligning inhibition rate values across sources. 
+
+To address data imbalance, particularly the scarcity of high-inhibition compounds, SMILES randomisation was applied to augment samples with inhibition rates above 70%.
+
+### Feature Engineering
+
+The molecular dataset was cleaned and standardised by validating SMILES strings, removing invalid or duplicate molecules, and aligning inhibition rate values across sources. 
 
 To address data imbalance, particularly the scarcity of high-inhibition compounds, SMILES randomisation was applied to augment samples with inhibition rates above 70%.
 
 ### Modelling Approach
 
-Multiple regression models were compared, including fingerprint-based machine learning models, gradient boosting methods, pretrained chemical language model embeddings (ChemBERTa), and graph neural networks (GIN).
+The task was formulated as a regression problem.
 
-All models were evaluated using MAE and RMSE with cross-validation, and the best-performing model was further tuned through hyperparameter optimisation before being used for final inhibition rate prediction.
+The following models were implemented and evaluated:
+
+- Gradient Boosting Regressor
+- XGBoost Regressor
+
+Models were trained using cross-validation and evaluated with MAE and RMSE.
+Hyperparameter tuning was applied to optimise model complexity, learning rate, and regularisation.
 
 
 ## IV. Results – Inhibition Rate Prediction
